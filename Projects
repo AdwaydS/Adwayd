@@ -1,0 +1,57 @@
+import { motion } from "framer-motion"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button";
+
+export default function Portfolio() { return ( <div className="space-y-20"> {/* Section 1: Hero */} <section className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-900 to-black text-white"> <motion.h1 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-5xl font-bold"> Hi, I'm Adwayd </motion.h1> <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 1 }} className="mt-4 text-lg max-w-xl"> A passionate developer crafting modern and user-friendly digital experiences. </motion.p> </section>
+
+{/* Section 2: About */}
+  <section className="max-w-5xl mx-auto px-4">
+    <motion.h2 initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="text-3xl font-semibold mb-4">
+      About Me
+    </motion.h2>
+    <motion.p initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+      I'm a 19-year-old developer passionate about creating dynamic, visually appealing, and impactful applications. Currently exploring AI tools and modern web development frameworks.
+    </motion.p>
+  </section>
+
+  {/* Section 3: Skills */}
+  <section className="max-w-5xl mx-auto px-4">
+    <motion.h2 initial={{ opacity: 0, y: -50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-3xl font-semibold mb-4">
+      Skills
+    </motion.h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {["HTML", "CSS", "JavaScript", "React", "Tailwind", "Node.js"].map((skill, i) => (
+        <motion.div key={skill} initial={{ opacity: 0, width: 0 }} whileInView={{ opacity: 1, width: "100%" }} transition={{ duration: 1, delay: i * 0.1 }} className="bg-gray-800 p-4 rounded-lg shadow-lg">
+          <p className="mb-2 font-medium">{skill}</p>
+          <div className="h-2 bg-gray-700 rounded-full">
+            <motion.div initial={{ width: 0 }} whileInView={{ width: `${80 - i * 5}%` }} transition={{ duration: 1.2 }} className="h-2 bg-blue-500 rounded-full"></motion.div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+
+  {/* Section 4: Projects */}
+  <section className="max-w-5xl mx-auto px-4">
+    <motion.h2 initial={{ opacity: 0, y: -50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-3xl font-semibold mb-4">
+      Projects
+    </motion.h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {[1, 2, 3, 4].map((project) => (
+        <motion.div key={project} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }}>
+          <Card className="overflow-hidden">
+            <CardContent className="p-0">
+              <img src={`https://via.placeholder.com/500x300?text=Project+${project}`} alt={`Project ${project}`} className="w-full h-48 object-cover" />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold">Project {project}</h3>
+                <p className="text-gray-600 mt-2">A brief description of Project {project} showcasing its purpose and features.</p>
+                <Button className="mt-4">View More</Button>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </section>
+</div>
+
+); }
+
