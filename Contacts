@@ -1,0 +1,69 @@
+import { motion } from "framer-motion"; import { Button } from "@/components/ui/button";
+
+export default function Portfolio() { return ( <div> {/* Section 1: Hero */} <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-purple-700 to-indigo-900 text-white text-center p-8"> <motion.h1 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-5xl font-bold mb-4"> Hi, I'm Adwayd </motion.h1> <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 1 }} className="text-xl mb-6"> Future-ready Developer | Creative Problem Solver </motion.p> <Button className="text-lg px-6 py-3">Explore My Work</Button> </section>
+
+{/* Section 2: About */}
+  <section className="py-20 bg-white text-gray-800">
+    <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <motion.img initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} src="/profile.jpg" alt="Profile" className="rounded-2xl shadow-lg" />
+      <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
+        <h2 className="text-3xl font-bold mb-4">About Me</h2>
+        <p className="text-lg leading-relaxed">
+          I’m a passionate developer with a focus on building interactive, user-friendly websites. I love blending creativity with technical expertise to deliver impactful solutions.
+        </p>
+      </motion.div>
+    </div>
+  </section>
+
+  {/* Section 3: Skills */}
+  <section className="py-20 bg-gray-100">
+    <div className="max-w-5xl mx-auto px-6">
+      <h2 className="text-3xl font-bold text-center mb-12">Skills</h2>
+      <div className="grid md:grid-cols-3 gap-8">
+        {["HTML", "CSS", "JavaScript", "React", "Node.js", "Python"].map((skill, i) => (
+          <motion.div key={i} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.2 }} className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition">
+            <h3 className="text-xl font-semibold mb-2">{skill}</h3>
+            <div className="w-full bg-gray-200 rounded-full h-3">
+              <div className="bg-indigo-500 h-3 rounded-full" style={{ width: `${80 - i * 5}%` }}></div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Section 4: Projects */}
+  <section className="py-20 bg-white">
+    <div className="max-w-5xl mx-auto px-6">
+      <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
+      <div className="grid md:grid-cols-3 gap-8">
+        {[1, 2, 3].map((project) => (
+          <motion.div key={project} whileHover={{ scale: 1.05 }} className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden cursor-pointer">
+            <img src={`/project${project}.jpg`} alt={`Project ${project}`} className="w-full h-48 object-cover" />
+            <div className="p-6">
+              <h3 className="text-xl font-semibold mb-2">Project {project}</h3>
+              <p className="text-gray-600">Brief description of project {project} highlighting main features and tech used.</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Section 5: Contact */}
+  <section className="py-20 bg-gray-100">
+    <div className="max-w-4xl mx-auto px-6 text-center">
+      <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+      <p className="text-lg mb-12">Have a project or want to work together? Let’s connect!</p>
+      <motion.form initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="grid gap-6">
+        <input type="text" placeholder="Your Name" className="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <input type="email" placeholder="Your Email" className="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <textarea placeholder="Your Message" rows="5" className="p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+        <Button className="px-6 py-3 text-lg">Send Message</Button>
+      </motion.form>
+    </div>
+  </section>
+</div>
+
+); }
+
