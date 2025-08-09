@@ -1,0 +1,143 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------- Global -------------------- */
+    :root{
+      --bg1:#0f172a; /* deep navy */
+      --bg2:#0b1220; /* darker */
+      --accent1:#7c3aed; /* purple */
+      --accent2:#06b6d4; /* teal */
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.04);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent),
+                  radial-gradient(900px 400px at 90% 80%, rgba(6,182,212,0.08), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      -webkit-tap-highlight-color: transparent;
+    }a{color:inherit}
+
+/* -------------------- Hero Section -------------------- */
+.hero{
+  min-height:100vh; display:flex; align-items:center; justify-content:center; padding:48px 24px;
+  position:relative; overflow:hidden;
+}
+.hero__container{max-width:1100px; width:100%; display:grid; grid-template-columns: 1fr 420px; gap:32px; align-items:center}
+
+/* left content */
+.intro{
+  padding:28px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:20px; box-shadow: 0 6px 30px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.03);
+}
+.kicker{display:inline-block;padding:6px 10px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:999px;font-weight:600;font-size:13px}
+h1{font-size:clamp(32px,6vw,56px); margin:18px 0 8px; line-height:1.02}
+.typed{color:var(--accent2); font-weight:700}
+p.lead{opacity:0.85; margin:12px 0 18px; font-size:16px}
+.cta-row{display:flex;gap:14px;align-items:center}
+.btn{padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:white;font-weight:700;cursor:pointer}
+.ghost{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent; cursor:pointer}
+
+/* right card */
+.profile-card{height:420px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:20px;padding:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;border:1px solid rgba(255,255,255,0.03)}
+.avatar{width:180px;height:180px;border-radius:999px;overflow:hidden;border:6px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.profile-name{margin-top:16px;font-weight:700}
+.profile-role{opacity:0.8;font-size:14px}
+
+/* animated floating shapes */
+.shape{position:absolute;border-radius:16px;filter:blur(40px);opacity:0.45;mix-blend-mode:screen}
+.shape.s1{width:380px;height:380px; background:linear-gradient(90deg,var(--accent1),transparent); left:-80px; top:-60px; transform:rotate(15deg)}
+.shape.s2{width:220px;height:220px;background:linear-gradient(90deg,var(--accent2),transparent); right:-40px; bottom:-40px}
+
+/* responsive */
+@media (max-width:880px){
+  .hero__container{grid-template-columns:1fr; text-align:center}
+  .profile-card{order:-1;margin-bottom:18px}
+}
+
+  </style>
+</head>
+<body>  <!-- =========== HERO SECTION (Section 1) =========== -->  <section class="hero" id="home">
+    <div class="shape s1" aria-hidden></div>
+    <div class="shape s2" aria-hidden></div><div class="hero__container">
+
+  <!-- LEFT: Intro / CTA -->
+  <div class="intro" data-aos="fade-right">
+    <span class="kicker">Hello — I’m</span>
+    <h1>YOUR NAME<span class="typed"> — <span id="typed"></span></span></h1>
+    <p class="lead">I build beautiful interfaces, scalable apps, and memorable digital experiences. Replace this line with a short 1–2 sentence bio that highlights what you do and the value you bring.</p>
+
+    <div class="cta-row">
+      <button class="btn" id="viewProjects">View Projects</button>
+      <button class="ghost" id="downloadCv">Download CV</button>
+    </div>
+
+    <!-- Social / quick links (placeholders) -->
+    <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+      <a href="#" title="GitHub" aria-label="GitHub">GH</a>
+      <a href="#" title="LinkedIn" aria-label="LinkedIn">LI</a>
+      <a href="#" title="Twitter" aria-label="Twitter">TW</a>
+    </div>
+  </div>
+
+  <!-- RIGHT: Profile preview card -->
+  <aside class="profile-card" data-aos="zoom-in">
+    <div class="avatar">
+      <!-- placeholder image: replace with your image -->
+      <img src="https://via.placeholder.com/400x400.png?text=Your+Photo" alt="Your photo">
+    </div>
+    <div class="profile-name">YOUR NAME</div>
+    <div class="profile-role">Frontend Developer • UI/UX • Creator</div>
+  </aside>
+
+</div>
+
+  </section>  <!-- =========== Other sections (placeholders) =========== -->  <!-- 
+    <!-- ABOUT --><section id="about"> ... </section>
+
+<!-- SKILLS -->
+<section id="skills"> ... </section>
+
+<!-- PROJECTS -->
+<section id="projects"> ... </section>
+
+<!-- CONTACT -->
+<section id="contact"> ... </section>
+
+-->
+
+  <!-- Scripts (Typed.js + AOS) -->  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>  <script>
+    // Initialize AOS
+    AOS.init({ duration:800, easing:'ease-out-cubic', once:true });
+
+    // Typed.js for dynamic job roles
+    var typed = new Typed('#typed', {
+      strings: ["Frontend Developer","UI/UX Designer","Full‑Stack Learner","Beast Mode Trainer"],
+      typeSpeed: 60,
+      backSpeed: 35,
+      backDelay: 1500,
+      loop: true
+    });
+
+    // Simple CTA hooks (replace with anchors or JS navigation later)
+    document.getElementById('viewProjects').addEventListener('click', function(){
+      window.location.href = '#projects';
+    });
+    document.getElementById('downloadCv').addEventListener('click', function(){
+      alert('Replace this with a link to your CV file or cloud storage.');
+    });
+  </script></body>
+</html>
